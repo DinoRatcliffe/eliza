@@ -1,6 +1,10 @@
+#! /usr/bin/env perl
+
 use strict;
 
-my $exitWords = "bye|goodbye|quit";
+my $user = "User";
+
+my $exitWords = "bye|goodbye|quit|exit";
 my $days = "Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday";
 my $times = "Evening|Morning|Afternoon";
 
@@ -17,12 +21,14 @@ my @rules = (
     [".*go to (.+).*"                                      , '"Sorry I have no idea where $1 is."'],
     [".*this.*($times).*"                                  , '"There are no direct trains running this $1."'],
     [".*($days).*($times).*"                               , '"There is no direct train $1. This is due to an earlier incident."'],
-    [".*($days).*"                                         ,  '"There will be bus replacement services on $1. Greater Anglia apologises ..."'],
+    [".*($days).*"                                         , '"There will be bus replacement services on $1. Greater Anglia apologises ..."'],
+    [".*trains?.*"					   , '"We are sorry to inform you that no trains are running."'],
+    [".*(Hello|Hi).*"					   , '"Howdy partner ;)"'],
     [".*(Hard|Long|Big|Large|Rough).*"                     , '"Thats what she said !"'],
-    [".*Tim.*"                                             , '"TIM is a bit of a dick !, don\'t listen to him."']
+    [".*Tim.*"                                       , '"TIM. I don’t like tim."']
 );
 
-print "User: ";
+print "$user: ";
 
 while(<stdin>) {
     my $input = $_;
@@ -40,11 +46,18 @@ while(<stdin>) {
             $match = 1;
         }
     }
+	
+    #just a nice special case
+    if ($input =~ /my name is (.+)/){
+	$user = $1;
+    	print "Eliza: Oh my name is Eliza nice to meet you $user\n";
+	$match = 1;
+    }
 
     # default response
     if ($match == 0) {
-        print "Eliza: WTF are you talking about ?\n";
+        print "Eliza: Sorry I don't understand.\n";
     }
     
-    print "User: ";
+    print "$user: ";
 }
