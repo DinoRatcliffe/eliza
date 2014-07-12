@@ -13,19 +13,19 @@ my $trainStations = "London|Braintree|Colchester|Ely|Stratford|Broxbourne|Cheshu
 
 #should read from file :/
 my @rules = (
-    ["I want to go to ($trainStations).*this ($times).*"   , '"Greater Anglia apologises for the delay of this $2’s services to $1. This is due to the weather."'],
-    ["I want to go to (.+).*this ($times).*"               , '"Sorry I have no idea where $1 is."'],
-    [".*go to ($trainStations).*($days) ($times).*"        , '"There will be bus replacement services on $2 $3 to $1. Greater Anglia apologises ..."'],
-    [".*go to ($trainStations).*this ($times).*"           , '"Greater Anglia apologises for the delay of this $2’s services to $1. This is due to the weather."'],
-    [".*go to ($trainStations).*"                          , '"Greater Anglia apologises for the delay of services to $1. This is due to the weather."'],
-    [".*go to (.+).*"                                      , '"Sorry I have no idea where $1 is."'],
-    [".*this.*($times).*"                                  , '"There are no direct trains running this $1."'],
-    [".*($days).*($times).*"                               , '"There is no direct train $1. This is due to an earlier incident."'],
-    [".*($days).*"                                         , '"There will be bus replacement services on $1. Greater Anglia apologises ..."'],
-    [".*trains?.*"					   , '"We are sorry to inform you that no trains are running."'],
-    [".*(Hello|Hi).*"					   , '"Howdy partner ;)"'],
-    [".*(Hard|Long|Big|Large|Rough).*"                     , '"Thats what she said !"'],
-    [".*Tim.*"                                       , '"TIM. I don’t like tim."']
+    ["I want to go to ($trainStations).*this ($times).*"	, '"Greater Anglia apologises for the delay of this $2’s services to $1. This is due to the weather."'],
+    ["I want to go to (.+).*this ($times).*"			, '"Sorry I have no idea where $1 is."'],
+    [".*go to ($trainStations).*($days) ($times).*"		, '"There will be bus replacement services on $2 $3 to $1. Greater Anglia apologises ..."'],
+    [".*go to ($trainStations).*this ($times).*"		, '"Greater Anglia apologises for the delay of this $2’s services to $1. This is due to the weather."'],
+    [".*go to ($trainStations).*"				, '"Greater Anglia apologises for the delay of services to $1. This is due to the weather."'],
+    [".*go to (.+).*"						, '"Sorry I have no idea where $1 is."'],
+    [".*this.*($times).*"					, '"There are no direct trains running this $1."'],
+    [".*($days).*($times).*"					, '"There is no direct train $1. This is due to an earlier incident."'],
+    [".*($days).*"						, '"There will be bus replacement services on $1. Greater Anglia apologises ..."'],
+    [".*trains?.*"						, '"We are sorry to inform you that no trains are running."'],
+    [".*(Hello|Hi).*"					   	, '"Howdy partner ;)"'],
+    [".*(Hard|Long|Big|Large|Rough).*"                     	, '"Thats what she said !"'],
+    [".*Tim.*"                                       		, '"TIM. I don’t like tim."']
 );
 
 print "$user: ";
